@@ -11,16 +11,25 @@ myAverage = myAverage / myGrades.length;
 
 console.log("My grade average is " + myAverage);
 
-/* function that accepts a number from 0-100 */
+/*customized exception class for better error handling */
+
+class GradeError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'GradeError';
+    }
+}
+/* Initial function that accepts a number from 0-100 */
 function validateGrade(value) {
     if (typeof value !== 'number') {
-        throw new Error('Input must be a number');
+        throw new GradeError('Input must be a number');
     }
     if (value < 0) {
-        throw new Error('Input must be greater than or equal to 0');
+        throw new GradeError('Input must be greater than or equal to 0');
     }
     if (value > 100) {
-        throw new Error('Input must be less than or equal to 100');
+        throw new GradeError('Input must be less than or equal to 100');
     }
     return value;
 }
+

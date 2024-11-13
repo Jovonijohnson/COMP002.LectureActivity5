@@ -1,14 +1,11 @@
 /* First debug said NAN */
-myGrades = [100, 100, 90, 73, 78, 94, 86];
-
+let myGrades = [100, 100, 90, 73, 78, 94, 86]; let myAverage = 0;
 myAverage = 0;
 
-for (let i = 1; i <= myGrades.length; i++) {
+/*The loop is incorrectly starting at 1 instead of 0, which misses the first element and causes an out-of-bounds error on the last iteration. */
+for (let i = 0; i < myGrades.length; i++) { myAverage += myGrades[i]; }
+
     /* The loop condition i <= myGrades.length should be i < myGrades.length to prevent accessing an undefined index. */
-
-myAverage += myGrades[i];
-
-}
 
 myAverage = myAverage / myGrades.length;
 

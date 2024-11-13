@@ -32,4 +32,15 @@ function validateGrade(value) {
     }
     return value;
 }
+/*Grade validation error: Input must be less than or equal to 100 */
+try {
+    let grade = validateGrade(105); // Test with an invalid grade
+    console.log("Valid grade: " + grade);
+} catch (error) {
+    if (error instanceof GradeError) {
+        console.error("Grade validation error: " + error.message);
+    } else {
+        console.error("Unexpected error: " + error.message);
+    }
+}
 
